@@ -28,9 +28,17 @@ management:
     web:
       exposure:
         include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
   endpoint:
     shutdown:
       enabled: true
+    health:
+      probes:
+        enabled: true
   info:
     env:
       enabled: true
@@ -50,7 +58,13 @@ endpoints:
 
 info:
   app:
-    name: card
+    name: CARD
     description: "Easy Bank Card Application"
     version: "1.0.0"
 
+
+logging:
+  level:
+    com:
+      microservice:
+        card: DEBUG
